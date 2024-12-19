@@ -6,7 +6,6 @@ import { Bookmark, Home } from "lucide-react";
 import Link from "next/link";
 import MessagesButton from "./MessagesButton";
 import NotificationsButton from "./NotificationsButton";
-import FollowingList from "./FollowingList";
 
 interface MenuBarProps {
   className?: string;
@@ -37,7 +36,7 @@ export default async function MenuBar({ className }: MenuBarProps) {
         asChild
       >
         <Link href="/">
-          <Home className="text-teal-500" /> 
+          <Home className="text-teal-500" />
           <span className="hidden lg:inline">Trang chủ</span>
         </Link>
       </Button>
@@ -62,7 +61,6 @@ export default async function MenuBar({ className }: MenuBarProps) {
           <span className="hidden lg:inline">Lưu bài viết</span>
         </Link>
       </Button>
-      <FollowingList />
     </div>
   );
 }
