@@ -13,7 +13,7 @@ export const fileRouter = {
     .middleware(async () => {
       const { user } = await validateRequest();
 
-      if (!user) throw new UploadThingError("Unauthorized");
+      if (!user) throw new UploadThingError("Không được phép");
 
       return { user };
     })
@@ -57,7 +57,7 @@ export const fileRouter = {
     .middleware(async () => {
       const { user } = await validateRequest();
 
-      if (!user) throw new UploadThingError("Unauthorized");
+      if (!user) throw new UploadThingError("Không được phép");
 
       return {};
     })

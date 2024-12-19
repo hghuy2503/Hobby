@@ -71,14 +71,14 @@ export function useUpdateProfileMutation() {
       router.refresh();
 
       toast({
-        description: "Profile updated",
+        description: "Đã cập nhật hồ sơ",
       });
     },
     onError(error) {
       console.error(error);
       toast({
         variant: "destructive",
-        description: "Failed to update profile. Please try again.",
+        description: "Không thể cập nhật hồ sơ. Vui lòng thử lại.",
       });
     },
   });

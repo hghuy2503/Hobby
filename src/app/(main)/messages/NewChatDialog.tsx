@@ -78,10 +78,10 @@ export default function NewChatDialog({
       onChatCreated();
     },
     onError(error) {
-      console.error("Error starting chat", error);
+      console.error("Lỗi khi bắt đầu trò chuyện", error);
       toast({
         variant: "destructive",
-        description: "Error starting chat. Please try again.",
+        description: "Lỗi bắt đầu trò chuyện, vui lòng thử lại!",
       });
     },
   });

@@ -36,7 +36,7 @@ export async function signUp(
 
     if (existingUsername) {
       return {
-        error: "Username already taken",
+        error: "Tên đăng nhập đã tồn tại",
       };
     }
 
@@ -51,7 +51,7 @@ export async function signUp(
 
     if (existingEmail) {
       return {
-        error: "Email already taken",
+        error: "Email đã tồn tại",
       };
     }
 

@@ -3,11 +3,11 @@ import { UTApi } from "uploadthing/server";
 
 export async function GET(req: Request) {
   try {
-    const authHeader = req.headers.get("Authorization");
+    const authHeader = req.headers.get("Được phép");
 
     if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
       return Response.json(
-        { message: "Invalid authorization header" },
+        { message: "Tiêu đề ủy quyền không hợp lệ" },
         { status: 401 },
       );
     }

@@ -34,10 +34,9 @@ export default function DeleteCommentDialog({
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Delete comment?</DialogTitle>
+          <DialogTitle>Xóa bình luận</DialogTitle>
           <DialogDescription>
-            Are you sure you want to delete this comment? This action cannot be
-            undone.
+            Bạn chắc chắn rằng xóa bình luận này, không thể khôi phục lại!
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
@@ -46,14 +45,14 @@ export default function DeleteCommentDialog({
             onClick={() => mutation.mutate(comment.id, { onSuccess: onClose })}
             loading={mutation.isPending}
           >
-            Delete
+            Xóa
           </LoadingButton>
           <Button
             variant="outline"
             onClick={onClose}
             disabled={mutation.isPending}
           >
-            Cancel
+            Hủy
           </Button>
         </DialogFooter>
       </DialogContent>

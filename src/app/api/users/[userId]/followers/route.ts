@@ -10,7 +10,7 @@ export async function GET(
     const { user: loggedInUser } = await validateRequest();
 
     if (!loggedInUser) {
-      return Response.json({ error: "Unauthorized" }, { status: 401 });
+      return Response.json({ error: "Không được phép" }, { status: 401 });
     }
 
     const user = await prisma.user.findUnique({
@@ -33,7 +33,7 @@ export async function GET(
     });
 
     if (!user) {
-      return Response.json({ error: "User not found" }, { status: 404 });
+      return Response.json({ error: "KHông tìm thấy người dùng" }, { status: 404 });
     }
 
     const data: FollowerInfo = {
@@ -44,7 +44,7 @@ export async function GET(
     return Response.json(data);
   } catch (error) {
     console.error(error);
-    return Response.json({ error: "Internal server error" }, { status: 500 });
+    return Response.json({ error: "Lỗi máy chủ nội bộ" }, { status: 500 });
   }
 }
 
@@ -56,7 +56,7 @@ export async function POST(
     const { user: loggedInUser } = await validateRequest();
 
     if (!loggedInUser) {
-      return Response.json({ error: "Unauthorized" }, { status: 401 });
+      return Response.json({ error: "Không được phép" }, { status: 401 });
     }
 
     await prisma.$transaction([
@@ -85,7 +85,7 @@ export async function POST(
     return new Response();
   } catch (error) {
     console.error(error);
-    return Response.json({ error: "Internal server error" }, { status: 500 });
+    return Response.json({ error: "Lỗi máy chủ nội bộ" }, { status: 500 });
   }
 }
 
@@ -97,7 +97,7 @@ export async function DELETE(
     const { user: loggedInUser } = await validateRequest();
 
     if (!loggedInUser) {
-      return Response.json({ error: "Unauthorized" }, { status: 401 });
+      return Response.json({ error: "Không được phép" }, { status: 401 });
     }
 
     await prisma.$transaction([
@@ -119,6 +119,6 @@ export async function DELETE(
     return new Response();
   } catch (error) {
     console.error(error);
-    return Response.json({ error: "Internal server error" }, { status: 500 });
+    return Response.json({ error: "Lỗi máy chủ nội bộ" }, { status: 500 });
   }
 }

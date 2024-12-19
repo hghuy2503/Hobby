@@ -15,7 +15,7 @@ export async function GET(
     const { user } = await validateRequest();
 
     if (!user) {
-      return Response.json({ error: "Unauthorized" }, { status: 401 });
+      return Response.json({ error: "Không được phép" }, { status: 401 });
     }
 
     const posts = await prisma.post.findMany({
@@ -36,6 +36,6 @@ export async function GET(
     return Response.json(data);
   } catch (error) {
     console.error(error);
-    return Response.json({ error: "Internal server error" }, { status: 500 });
+    return Response.json({ error: "Lỗi máy chủ nội bộ" }, { status: 500 });
   }
 }

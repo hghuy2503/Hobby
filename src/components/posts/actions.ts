@@ -13,9 +13,9 @@ export async function deletePost(id: string) {
     where: { id },
   });
 
-  if (!post) throw new Error("Post not found");
+  if (!post) throw new Error("Không tìm thấy bài viết");
 
-  if (post.userId !== user.id) throw new Error("Unauthorized");
+  if (post.userId !== user.id) throw new Error("Không được phép");
 
   const deletedPost = await prisma.post.delete({
     where: { id },

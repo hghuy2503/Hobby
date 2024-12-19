@@ -25,7 +25,7 @@ export async function login(
 
     if (!existingUser || !existingUser.passwordHash) {
       return {
-        error: "Incorrect username or password",
+        error: "Tên người dùng hoặc mật khẩu không chính xác",
       };
     }
 
@@ -38,7 +38,7 @@ export async function login(
 
     if (!validPassword) {
       return {
-        error: "Incorrect username or password",
+        error: "Mật khẩu không chính xác",
       };
     }
 

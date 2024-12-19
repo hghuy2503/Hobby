@@ -48,14 +48,14 @@ export function useSubmitCommentMutation(postId: string) {
       });
 
       toast({
-        description: "Comment created",
+        description: "Đã gửi bình luận",
       });
     },
     onError(error) {
       console.error(error);
       toast({
         variant: "destructive",
-        description: "Failed to submit comment. Please try again.",
+        description: "Không thể gửi bình luận. Vui lòng thử lại.",
       });
     },
   });
@@ -91,14 +91,14 @@ export function useDeleteCommentMutation() {
       );
 
       toast({
-        description: "Comment deleted",
+        description: "Đã xóa bình luận",
       });
     },
     onError(error) {
       console.error(error);
       toast({
         variant: "destructive",
-        description: "Failed to delete comment. Please try again.",
+        description: "Không thể xóa bình luận. Vui lòng thử lại!",
       });
     },
   });

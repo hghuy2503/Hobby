@@ -10,6 +10,7 @@ import Link from "next/link";
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuPortal,
@@ -42,47 +43,54 @@ export default function UserButton({ className }: UserButtonProps) {
       <DropdownMenuContent>
         <DropdownMenuLabel>Chào, {user.username}</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <Link href={`/users/${user.username}`}>
-          <DropdownMenuItem>
-            <UserIcon className="mr-2 size-4" />
-            Hồ sơ
-          </DropdownMenuItem>
-        </Link>
-        <DropdownMenuSub>
-          <DropdownMenuSubTrigger>
-            <Monitor className="mr-2 size-4" />
-            Chế độ
-          </DropdownMenuSubTrigger>
-          <DropdownMenuPortal>
-            <DropdownMenuSubContent>
-              <DropdownMenuItem onClick={() => setTheme("system")}>
-                <Monitor className="mr-2 size-4" />  
-              Mặc định 
-                {theme === "system" && <Check className="ms-2 size-4" />}
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setTheme("light")}>
-                <Sun className="mr-2 size-4" />
-                Sáng
-                {theme === "light" && <Check className="ms-2 size-4" />}
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setTheme("dark")}>
-                <Moon className="mr-2 size-4" />
-                Tối
-                {theme === "dark" && <Check className="ms-2 size-4" />}
-              </DropdownMenuItem>
-            </DropdownMenuSubContent>
-          </DropdownMenuPortal>
-        </DropdownMenuSub>
+
+        <DropdownMenuGroup>
+          <Link href={`/users/${user.username}`}>
+            <DropdownMenuItem>
+              <UserIcon className="mr-2 size-4" />
+              Hồ sơ
+            </DropdownMenuItem>
+          </Link>
+        </DropdownMenuGroup>
+
         <DropdownMenuSeparator />
-        <DropdownMenuItem
-          onClick={() => {
-            queryClient.clear();
-            logout();
-          }}
-        >
-          <LogOutIcon className="mr-2 size-4" />
-          Đăng xuất
-        </DropdownMenuItem>
+
+        <DropdownMenuGroup>
+          <DropdownMenuSub>
+            <DropdownMenuSubTrigger>
+              <Monitor className="mr-2 size-4" />
+              Chế độ
+            </DropdownMenuSubTrigger>
+            <DropdownMenuPortal>
+              <DropdownMenuSubContent>
+                <DropdownMenuItem onClick={() => setTheme("light")}>
+                  <Sun className="mr-2 size-4" />
+                  Sáng
+                  {theme === "light" && <Check className="ms-2 size-4" />}
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setTheme("dark")}>
+                  <Moon className="mr-2 size-4" />
+                  Tối
+                  {theme === "dark" && <Check className="ms-2 size-4" />}
+                </DropdownMenuItem>
+              </DropdownMenuSubContent>
+            </DropdownMenuPortal>
+          </DropdownMenuSub>
+        </DropdownMenuGroup>
+
+        <DropdownMenuSeparator />
+
+        <DropdownMenuGroup>
+          <DropdownMenuItem
+            onClick={() => {
+              queryClient.clear();
+              logout();
+            }}
+          >
+            <LogOutIcon className="mr-2 size-4" />
+            Đăng xuất
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>
   );

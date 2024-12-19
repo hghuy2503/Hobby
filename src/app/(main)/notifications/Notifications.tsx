@@ -44,7 +44,7 @@ export default function Notifications() {
       });
     },
     onError(error) {
-      console.error("Failed to mark notifications as read", error);
+      console.error("Không thể đánh dấu thông báo là đã đọc", error);
     },
   });
 

@@ -24,15 +24,17 @@ export default function useInitializeChatClient() {
             .json<{ token: string }>()
             .then((data) => data.token),
       )
-      .catch((error) => console.error("Failed to connect user", error))
+      .catch((error) => console.error("Không thể kết nối người dùng", error))
       .then(() => setChatClient(client));
 
     return () => {
       setChatClient(null);
       client
         .disconnectUser()
-        .catch((error) => console.error("Failed to disconnect user", error))
-        .then(() => console.log("Connection closed"));
+        .catch((error) =>
+          console.error("Không thể ngắt kết nối người dùng", error),
+        )
+        .then(() => console.log("Đã đóng kết nối"));
     };
   }, [user.id, user.username, user.displayName, user.avatarUrl]);
 
