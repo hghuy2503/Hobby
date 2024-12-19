@@ -34,10 +34,10 @@ export default function DeletePostDialog({
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Delete post?</DialogTitle>
+          <DialogTitle>Bạn có muốn xóa?</DialogTitle>
           <DialogDescription>
-            Are you sure you want to delete this post? This action cannot be
-            undone.
+            Bạn có chắc chắn muốn xóa bài đăng này? Hành động này không thể khôi
+            phục!
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
@@ -46,14 +46,14 @@ export default function DeletePostDialog({
             onClick={() => mutation.mutate(post.id, { onSuccess: onClose })}
             loading={mutation.isPending}
           >
-            Delete
+            Xóa
           </LoadingButton>
           <Button
             variant="outline"
             onClick={onClose}
             disabled={mutation.isPending}
           >
-            Cancel
+            Hủy
           </Button>
         </DialogFooter>
       </DialogContent>

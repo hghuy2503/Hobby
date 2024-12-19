@@ -55,7 +55,7 @@ export async function login(
     if (isRedirectError(error)) throw error;
     console.error(error);
     return {
-      error: "Something went wrong. Please try again.",
+      error: "Đã xảy ra lỗi, vui lòng thử lại",
     };
   }
 }

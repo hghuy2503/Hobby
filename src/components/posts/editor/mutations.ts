@@ -60,14 +60,14 @@ export function useSubmitPostMutation() {
       });
 
       toast({
-        description: "Post created",
+        description: "Đã tạo bài viết",
       });
     },
     onError(error) {
       console.error(error);
       toast({
         variant: "destructive",
-        description: "Failed to post. Please try again.",
+        description: "Có lỗi xãy ra vui lòng thử lại",
       });
     },
   });

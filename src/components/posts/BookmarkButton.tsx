@@ -40,7 +40,7 @@ export default function BookmarkButton({
         : kyInstance.post(`/api/posts/${postId}/bookmark`),
     onMutate: async () => {
       toast({
-        description: `Post ${data.isBookmarkedByUser ? "un" : ""}bookmarked`,
+        description: `Đã ${data.isBookmarkedByUser ? "bỏ bài" : "lưu bài"} yêu thích`,
       });
 
       await queryClient.cancelQueries({ queryKey });
@@ -58,7 +58,7 @@ export default function BookmarkButton({
       console.error(error);
       toast({
         variant: "destructive",
-        description: "Something went wrong. Please try again.",
+        description: "Đã xảy ra lỗi, vui lòng thử lại",
       });
     },
   });

@@ -64,7 +64,7 @@ export default function useMediaUpload() {
     if (isUploading) {
       toast({
         variant: "destructive",
-        description: "Please wait for the current upload to finish.",
+        description: "Vui lòng đợi quá trình tải lên hiện tại hoàn tất.",
       });
       return;
     }
@@ -72,7 +72,8 @@ export default function useMediaUpload() {
     if (attachments.length + files.length > 5) {
       toast({
         variant: "destructive",
-        description: "You can only upload up to 5 attachments per post.",
+        description:
+          "Bạn chỉ có thể tải lên tối đa 5 tệp đính kèm cho mỗi bài đăng.",
       });
       return;
     }

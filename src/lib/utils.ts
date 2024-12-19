@@ -14,17 +14,19 @@ export function formatRelativeDate(from: Date) {
   const vietnamTime = addHours(from, 7); 
   const currentDate = addHours(new Date(), 7);
 
-  if (currentDate.getTime() - vietnamTime.getTime() < 24 * 60 * 60 * 1000) {
-    // Hiển thị thời gian tương đối (vd: "2 giờ trước", "1 ngày trước")
-    return formatDistanceToNowStrict(vietnamTime, { addSuffix: true, locale: vi });
+  const timeDifference = currentDate.getTime() - vietnamTime.getTime();
+
+  if (timeDifference < 60 * 60 * 1000) {
+    // Nếu dưới 1 giờ, hiển thị số phút
+    const minutes = Math.floor(timeDifference / (60 * 1000));
+    return `${minutes} phút trước`;
+  } else if (timeDifference < 24 * 60 * 60 * 1000) {
+    // Nếu dưới 24 giờ, hiển thị số giờ
+    const hours = Math.floor(timeDifference / (60 * 60 * 1000));
+    return `${hours} giờ trước`;
   } else {
-    if (currentDate.getFullYear() === vietnamTime.getFullYear()) {
-      // Hiển thị ngày tháng trong năm hiện tại
-      return format(vietnamTime, "dd/MM", { locale: vi });
-    } else {
-      // Hiển thị ngày tháng và năm khác
-      return format(vietnamTime, "dd/MM/yyyy", { locale: vi });
-    }
+    // Nếu trên 24 giờ, hiển thị ngày, giờ và năm
+    return format(vietnamTime, "dd/MM/yyyy HH:mm", { locale: vi });
   }
 }
 
