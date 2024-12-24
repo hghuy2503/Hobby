@@ -1,6 +1,7 @@
 import SearchField from "@/components/SearchField";
 import UserButton from "@/components/UserButton";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   return (
@@ -11,7 +12,13 @@ export default function Navbar() {
           href="/"
           className="flex items-center gap-2 text-2xl font-extrabold"
         >
-          Hobby
+          <Image
+            src="/LOGO2.png"
+            alt="Logo"
+            width={100}
+            height={100}
+            className="rounded-full"
+          />
         </Link>
         <SearchField />
         <UserButton className="sm:ms-auto" />
