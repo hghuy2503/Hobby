@@ -21,6 +21,6 @@ export async function GET() {
     return Response.json(data);
   } catch (error) {
     console.error(error);
-    return Response.json({ error: "ILỗi máy chủ nội bộ" }, { status: 500 });
+    return Response.json({ error: "Lỗi máy chủ nội bộ" }, { status: 500 });
   }
 }

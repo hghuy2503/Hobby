@@ -47,6 +47,6 @@ export async function GET(req: Request) {
     return new Response();
   } catch (error) {
     console.error(error);
-    return Response.json({ error: "Internal server error" }, { status: 500 });
+    return Response.json({ error: "Lỗi máy chủ nội bộ" }, { status: 500 });
   }
 }
